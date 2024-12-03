@@ -1,0 +1,196 @@
+/* login.css */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f7f7f7;
+}
+
+.login-box {
+    width: 20%;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.input-field {
+    width: 95%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #4caf50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+/* Ensure uniformity for login button */
+button.login-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.login-btn:hover {
+    background-color: #45a049;
+}
+
+/* Ensure all buttons have consistent styling */
+button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 8px 0; /* Add margin to separate buttons */
+    width: 100%; /* Make all buttons the same width */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.error {
+    color: #f44336;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Add specific styles for user room management */
+.room {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.saved-data {
+    margin-top: 20px;
+}
+
+.entry {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.entry span {
+    font-size: 14px;
+    color: #555;
+}
+
+h3, h4, h5 {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Mobile-specific styles */
+@media only screen and (max-width: 600px) {
+    .login-box {
+        width: 80%;
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .input-field {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    button.login-btn {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    button {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    .room {
+        padding: 15px;
+    }
+
+    .entry {
+        flex-direction: column;
+        margin: 8px 0;
+        padding: 8px;
+    }
+
+    .entry span {
+        font-size: 12px;
+    }
+
+    h3, h4, h5 {
+        font-size: 16px;
+    }
+}
+
+/* Tablet-specific styles */
+@media only screen and (max-width: 1024px) {
+    .login-box {
+        width: 50%;
+        padding: 30px;
+    }
+
+    h2 {
+        font-size: 22px;
+        margin-bottom: 18px;
+    }
+
+    .input-field {
+        font-size: 13px;
+        padding: 9px;
+    }
+
+    button.login-btn {
+        font-size: 15px;
+        padding: 11px;
+    }
+
+    button {
+        font-size: 13px;
+        padding: 11px;
+    }
+
+    .room {
+        padding: 18px;
+    }
+
+    .entry {
+        margin: 9px 0;
+    }
+
+    h3, h4, h5 {
+        font-size: 17px;
+    }
+}

@@ -1,0 +1,380 @@
+/* Room.css */
+.room {
+  border: 2px solid #4CAF50;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 500px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.room:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.room h3 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.room button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.room button:hover {
+  background-color: #45a049;
+}
+
+.popup {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.popup h4 {
+  color: #4CAF50;
+  margin-bottom: 15px;
+}
+
+.popup button {
+  background-color: #008CBA;
+  color: #fff;
+}
+
+.popup button:hover {
+  background-color: #007bb5;
+}
+
+.popup input[type="text"] {
+  width: calc(100% - 20px);
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.popup label {
+  display: block;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
+}
+
+
+.saved-data {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Increased gap between rows */
+  
+}
+
+.saved-data .entry {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #ccc; /* Line separating each row */
+  padding: 5px 0; /* Increased padding for more space around each entry */
+  
+}
+
+.saved-data .entry span {
+  flex: 1;
+  word-wrap: break-word; /* Ensure long text wraps to the next line */
+  margin-right: 20px; /* Increased margin for more space between cells */
+  max-width: 180px; /* Increased width for cells */
+  padding: 0 5px; /* Increased padding inside each cell */
+}
+
+.saved-data .entry span.description {
+  max-width: 500px; /* Increase the width for the description */
+  margin-right: 0; /* No right margin for the description */
+  padding-left: 0; /* Ensure no left padding */
+  padding-right: 0px; /* Add right padding to avoid touching the next column */
+}
+
+.saved-data h5 {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.saved-data .entry span:last-child {
+  margin-right: 0; /* Remove right margin for the last element in the row */
+}
+
+
+
+
+
+/* Comments Section Container */
+.comments-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+/* Category Title */
+.category-title {
+  font-size: 1.3rem;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Comments List */
+.comments {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+/* Single Comment */
+.comment-item {
+  padding: 12px;
+  background-color: #fff;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.comment-author {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.comment-text {
+  margin: 8px 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.comment-time {
+  font-size: 0.9rem;
+  color: #888;
+  text-align: right;  /* Right-align the time */
+  display: block; /* Ensure it takes a new line */
+}
+
+
+
+
+/* Empty Comments Message */
+.no-comments {
+  font-size: 1.1rem;
+  color: #888;
+  text-align: center;
+}
+
+/* New Comment Input Form */
+.new-comment-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-input {
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  resize: none;
+  min-height: 50px;
+  font-family: Arial, sans-serif;
+}
+
+.comment-input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-comment-button,
+.back-button {
+  padding: 10px 20px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.new-comment-form .buttons {
+  display: flex;
+  gap: 10%; /* Adds space between the buttons */
+}
+
+.add-comment-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.add-comment-button:hover {
+  background-color: #218838;
+}
+
+.back-button {
+  background-color: #ccc;
+  color: #333;
+}
+
+.back-button:hover {
+  background-color: #999;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .comments-container {
+    padding: 15px;
+  }
+
+  .comment-input {
+    font-size: 0.9rem;
+  }
+
+  .add-comment-button,
+  .back-button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+/* Important Notes List */
+.notes-list {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+/* Single Note */
+.note-item {
+  padding: 12px;
+  background-color: #fff;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.note-author {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.note-text {
+  margin: 8px 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.note-time {
+  font-size: 0.9rem;
+  color: #888;
+  text-align: right;  /* Right-align the time */
+  display: block; /* Ensure it takes a new line */
+}
+
+/* Empty Notes Message */
+.no-notes {
+  font-size: 1.1rem;
+  color: #888;
+  text-align: center;
+}
+
+/* New Note Input Form */
+.new-note-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.note-input {
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  resize: none;
+  min-height: 100px;
+  font-family: Arial, sans-serif;
+}
+
+.note-input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-note-button {
+  padding: 10px 20px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.add-note-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.add-note-button:hover {
+  background-color: #218838;
+}
