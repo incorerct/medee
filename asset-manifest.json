@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/medee/static/css/main.a3f25dbb.css",
-    "main.js": "/medee/static/js/main.8f25360c.js",
+    "main.js": "/medee/static/js/main.b12be694.js",
     "static/js/453.ade6345e.chunk.js": "/medee/static/js/453.ade6345e.chunk.js",
     "index.html": "/medee/index.html",
     "main.a3f25dbb.css.map": "/medee/static/css/main.a3f25dbb.css.map",
-    "main.8f25360c.js.map": "/medee/static/js/main.8f25360c.js.map",
+    "main.b12be694.js.map": "/medee/static/js/main.b12be694.js.map",
     "453.ade6345e.chunk.js.map": "/medee/static/js/453.ade6345e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a3f25dbb.css",
-    "static/js/main.8f25360c.js"
+    "static/js/main.b12be694.js"
   ]
 }
