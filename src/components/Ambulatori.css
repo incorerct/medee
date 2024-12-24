@@ -1,0 +1,137 @@
+/* Ambulatori.css */
+.ambulatori {
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 500px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .ambulatori:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .ambulatori h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .ambulatori button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .ambulatori button:hover {
+    background-color: #45a049;
+  }
+  
+  .ambulatori .category-button {
+    display: block;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #008CBA;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .ambulatori .category-button:hover {
+    background-color: #007bb5;
+  }
+  
+  .ambulatori .input-section {
+    margin-top: 20px;
+  }
+  
+  .ambulatori .input-section label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .ambulatori .input-section input[type="text"] {
+    width: calc(100% - 20px);
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .ambulatori .input-section button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .ambulatori .input-section button:hover {
+    background-color: #218838;
+  }
+  
+  .ambulatori .view-data {
+    margin-top: 20px;
+  }
+  
+  .ambulatori .view-data h4 {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  .ambulatori .view-data ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .ambulatori .view-data ul li {
+    margin-bottom: 10px;
+  }
+  
+  .ambulatori .view-data ul li span {
+    font-size: 1em;
+  }
+  
+  .ambulatori .loading {
+    font-size: 1.2em;
+    color: #888;
+    text-align: center;
+    padding: 20px;
+  }
+
+
+  
+  .green-button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .green-button:hover {
+    background-color: darkgreen;
+  }
+  
+  

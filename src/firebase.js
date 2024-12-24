@@ -1,15 +1,19 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA7wHLcBGxbnRabPNzlG3Tvq7LOvqLNCLA",
-  authDomain: "report-562cf.firebaseapp.com",
-  projectId: "report-562cf",
-  storageBucket: "report-562cf.firebasestorage.app",
-  messagingSenderId: "444329813639",
-  appId: "1:444329813639:web:096ef238a2a2e757cbba22",
-  measurementId: "G-VNKH8CP6RT"
+  apiKey: process.env.REACT_APP_APIKEY ,
+  authDomain:  process.env.REACT_APP_AUTHDOMAIN,
+  projectId: process.env.REACT_APP_PROJECTID,
+  storageBucket:process.env.REACT_APP_STORAGEBUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGINGSENDERID,
+  appId: process.env.REACT_APP_APPID,
+  measurementId: process.env.REACT_APP_MEASUREMENTID,
 };
 
 const app = initializeApp(firebaseConfig);

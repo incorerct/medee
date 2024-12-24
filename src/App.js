@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import Login from "./components/login";
 import Room from "./components/Room";
+import Ambulatori from "./components/ambulatori"; // Import Ambulatori component
 import "./App.css";
+
 
 const App = () => {
   const [userRole, setUserRole] = useState(null);
@@ -13,7 +15,7 @@ const App = () => {
 
   const [startDate, setStartDate] = useState(getTodayDate());
   const [endDate, setEndDate] = useState(getTodayDate());
-  const [filterKey, setFilterKey] = useState(0); 
+  const [filterKey, setFilterKey] = useState(0);
 
   const setToday = () => {
     const today = getTodayDate();
@@ -41,7 +43,7 @@ const App = () => {
   };
 
   const applyFilter = () => {
-    setFilterKey((prevKey) => prevKey + 1); 
+    setFilterKey((prevKey) => prevKey + 1);
     console.log(`${startDate} ээс ${endDate} хооронд амжилттай филтерлэлээ`);
   };
 
@@ -84,29 +86,37 @@ const App = () => {
 
       <div className="rooms">
         <Room
-          key={`room-ami-${filterKey}`} 
-          roomName="Ами Тасаг"
+          key={`room-ami-${filterKey}`}
+          roomName="Аами, Таами"
           startDate={startDate}
           endDate={endDate}
           userRole={userRole}
         />
         <Room
           key={`room-tami-${filterKey}`}
-          roomName="Тами Тасаг"
+          roomName="Маша, Миша"
           startDate={startDate}
           endDate={endDate}
           userRole={userRole}
         />
         <Room
-          key={`room-pororo1-${filterKey}`} 
-          roomName="Пороро 1 Тасаг"
+          key={`room-pororo1-${filterKey}`}
+          roomName="Пороро 1"
           startDate={startDate}
           endDate={endDate}
           userRole={userRole}
         />
         <Room
-          key={`room-pororo2-${filterKey}`} 
-          roomName="Пороро 2 Тасаг"
+          key={`room-pororo2-${filterKey}`}
+          roomName="Пороро 2"
+          startDate={startDate}
+          endDate={endDate}
+          userRole={userRole}
+        />
+        {/* Add the Ambulatori room */}
+        <Ambulatori
+          key={`ambulatori-${filterKey}`}
+          roomName="Амбулатори"
           startDate={startDate}
           endDate={endDate}
           userRole={userRole}

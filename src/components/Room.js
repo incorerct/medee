@@ -6,7 +6,7 @@ import { auth } from "../firebase";
 import * as XLSX from "xlsx";
 
 const Room = ({ roomName, startDate, endDate }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [inputData, setInputData] = useState({});
   const [savedData, setSavedData] = useState({});
@@ -26,7 +26,7 @@ const Room = ({ roomName, startDate, endDate }) => {
   const categories = [
     { name: "Тарилга", options: ["Cудас", "Дусал", "Булчин", "Арьсан дор", "Арьсан дотор"] },
     { name: "Гардан ажилбар", options: ["Амин үзүүлэлт", "Антибиотик/тариагаар/", "Антибиотик/уухаар/", "Уян зүү", "Яаралтай тусламж (O2)", "Нүдэнд эм дусаах", "Нүдэнд тос хавчуулах", "Хамар цэвэрлэх, угаах", "Хамарт эм дусаах", "Чих цэвэрлэх, угаах", "Чихэнд эм дусаах", "Утлага хийх", "Клизм тавих", "Шулуун гэдсэнд лаа хийх", "Биеийн жин үзэж тэмдэглэх", "Шарх цэвэрлэх", "Боолт хийх", "Гардан хооллосон хүүхэд", "Эм гардан уулгасан", "Толгойд тос түрхэх"] },
-    { name: "АШББ хөтлөх", options: ["Эмийн түүвэр хийх", "Стори бодох", "Сувилгааны түүх бодох"] },
+    { name: "АШББ хөтлөх", options: ["Эмийн түүвэр хийх", "Стори бодох", "Сувилгааны түүх хөтлөх"] },
     { name: "Шинжилгээ", options: ["Биохими", "Цусны ерөнхий", "ЦЕШ", "ШЕШ", "Цагаан хорхой", "Рентген", "ЭХО", "Нарийн мэргэжлийн эмчийн үзлэг"] },
     { name: "Асаргаа, сувилагаа", options: ["Усанд оруулах", "Ор засаж, цэвэрлэх", "Цагаан хэрэглэл солих", "Хэсэгчилсэн угаалга хийх (гар, хөл, шүд, ам)"] },
     { name: "ДХ", options: ["Хөдөлгөөн засал", "Хөдөлмөр засал", "Хэл засал"] },
@@ -127,7 +127,6 @@ const Room = ({ roomName, startDate, endDate }) => {
 
 
 
-  
   const handleExportToExcel = async () => {
     if (isLoadingData) {
       console.log("Data is still loading. Please wait...");
@@ -137,52 +136,65 @@ const Room = ({ roomName, startDate, endDate }) => {
     setIsLoadingData(true);
   
     try {
-      await fetchSavedData(); 
+      await fetchSavedData();
   
-      // Check if data length is greater than zero before proceeding with export
       if (!savedData || Object.keys(savedData).length === 0) {
         console.log("No data available to export.");
         alert("Мэдээлэл авахад алдаа гарлаа, түр хүлээгээд ахин оролдоно уу.");
-        return; // Don't proceed if no data is available
+        return;
       }
   
-      // Proceed with generating the Excel file
       const workbook = XLSX.utils.book_new();
       const worksheetData = [];
   
-      // Calculate the number of days between startDate and endDate
       const start = new Date(startDate);
       const end = new Date(endDate);
       const diffInTime = end.getTime() - start.getTime();
-      const diffInDays = Math.ceil(diffInTime / (1000 * 3600 * 24)) + 1; // Convert milliseconds to days and add 1
+      const diffInDays = Math.ceil(diffInTime / (1000 * 3600 * 24)) + 1;
   
       const dateRange = Array.from({ length: diffInDays }, (_, i) => {
         const nextDate = new Date(start);
-        nextDate.setDate(start.getDate() + i); // Increment by one day
+        nextDate.setDate(start.getDate() + i);
         return nextDate.toISOString().split("T")[0];
       });
   
-      worksheetData.push(["Ангилал", "Сонголт", ...dateRange, "Нийт"]); // Add "Total" as the last column
+      worksheetData.push(["Ангилал", "Сонголт", ...dateRange, "Нийт Үйлчлүүлэгч", "Нийт Давтамж"]); // Added new total column
   
-      // Fill in Data for all categories and options
       categories.forEach((category) => {
         const options = category.options;
   
         options.forEach((option) => {
           const row = [
-            category.name, // Category Name
-            option, // Option Name
+            category.name,
+            option,
             ...dateRange.map((date) => {
               const matchingData = savedData[category.name.toLowerCase()]?.[option]?.find(
                 (entry) => entry.date === date
               );
-              return matchingData ? matchingData.value : ""; // Empty string for no data
+              return matchingData ? matchingData.value : "";
             }),
           ];
   
-          // Calculate the total for the row
-          const total = row.slice(2).reduce((sum, value) => sum + (parseInt(value, 10) || 0), 0);
-          row.push(total); // Add the total value to the row
+          // Calculate regular total (excluding values after #)
+          const regularTotal = row.slice(2).reduce((sum, value) => {
+            if (typeof value === 'string' && value.includes('#')) {
+              const beforeHash = value.split('#')[0];
+              return sum + (parseInt(beforeHash, 10) || 0);
+            }
+            return sum + (parseInt(value, 10) || 0);
+          }, 0);
+  
+          // Calculate total for values after #
+          const hashTotal = row.slice(2).reduce((sum, value) => {
+            if (typeof value === 'string' && value.includes('#')) {
+              const afterHash = value.split('#')[1];
+              return sum + (parseInt(afterHash, 10) || 0);
+            }
+            return sum;
+          }, 0);
+  
+          row.push(regularTotal); // Add regular total
+          row.push(hashTotal); // Add hash total
   
           worksheetData.push(row);
         });
@@ -211,7 +223,7 @@ const Room = ({ roomName, startDate, endDate }) => {
       console.error("Error occurred while exporting data:", error);
       alert("Мэдээ татах болон экспорт хийхэд алдаа гарлаа.");
     } finally {
-      setIsLoadingData(false); // Reset loading state after export attempt
+      setIsLoadingData(false);
     }
   };
   
@@ -247,15 +259,22 @@ const Room = ({ roomName, startDate, endDate }) => {
       console.error("Одоо байгаа мэдээг татахад алдаа гарлаа:", error);
     }
   };
-  const handleInputChange = (e, option) => {
-    // Ensure only integers are allowed
-    const value = e.target.value;
+
+const handleInputChange = (e, option) => {
+  const value = e.target.value;
+
+  // Allow only numbers and the "#" symbol
+  if (/^[0-9#]*$/.test(value)) {
+    setInputData({ ...inputData, [option]: value });
+  }
+};
+
   
-    // Check if the value is a valid integer
-    if (value === '' || /^\d+$/.test(value)) {
-      setInputData({ ...inputData, [option]: value });
-    }
-  };
+
+
+
+
+
 
 const handleSubmit = async () => {
   if (isSubmitting) return;
@@ -276,14 +295,28 @@ const handleSubmit = async () => {
     const roomRef = doc(db, "rooms", roomName);
     const categoryRef = collection(roomRef, selectedCategory.name.toLowerCase());
 
-    // Convert inputData values to integers
-    const inputDataAsIntegers = Object.keys(inputData).reduce((acc, option) => {
-      const value = parseInt(inputData[option], 10);
-      acc[option] = isNaN(value) ? 0 : value;  // Default to 0 if not a valid number
+    // Validate and process input data
+    const inputDataProcessed = Object.keys(inputData).reduce((acc, option) => {
+      const value = inputData[option];
+      
+      // If the value contains #, validate both parts
+      if (value.includes('#')) {
+        const [beforeHash, afterHash] = value.split('#');
+        
+        // Validate both parts are numbers
+        if (!/^\d*$/.test(beforeHash) || !/^\d*$/.test(afterHash)) {
+          throw new Error(`Invalid format for ${option}. Both parts must be numbers.`);
+        }
+        
+        acc[option] = value; // Keep the original format with #
+      } else {
+        // For regular numbers
+        const numValue = parseInt(value, 10);
+        acc[option] = isNaN(numValue) ? 0 : numValue;
+      }
       return acc;
     }, {});
 
-    // Use the startDate for saving
     const user = auth.currentUser;
 
     if (!userName) {
@@ -305,15 +338,15 @@ const handleSubmit = async () => {
     if (existingDocId) {
       const docRef = doc(categoryRef, existingDocId);
       await updateDoc(docRef, {
-        data: inputDataAsIntegers,
+        data: inputDataProcessed,
         addedBy: userName,
       });
       alert("Мэдээг амжилттай шинэчилсэн!");
     } else {
       await addDoc(categoryRef, {
         category: selectedCategory.name,
-        data: inputDataAsIntegers,
-        date: startDate, // Save with startDate
+        data: inputDataProcessed,
+        date: startDate,
         addedBy: userName,
       });
       alert("Мэдээг амжилттай хадгаллаа!");
@@ -321,15 +354,27 @@ const handleSubmit = async () => {
 
     setInputData({});
     setSelectedCategory(null);
-    fetchSavedData(); // Refresh the saved data
+    fetchSavedData();
   } catch (error) {
     console.error("Мэдээг хадгалахад алдаа гарлаа: ", error);
-    alert("Мэдээг хадгалахад алдаа гарлаа");
+    if (error.message.includes("Invalid format")) {
+      alert(error.message);
+    } else {
+      alert("Мэдээг хадгалахад алдаа гарлаа");
+    }
   } finally {
     setIsSubmitting(false);
   }
 };
-  
+
+
+
+
+
+
+
+
+
   const handleViewCategoryClick = async (category) => {
     setViewCategory(category);
     try {
@@ -442,11 +487,6 @@ const fetchImportantNotes = async () => {
   return (
     <div className="room">
       <h3>{roomName}</h3>
-
-      <button onClick={() => setIsOpen(!isOpen)}>
-      {isOpen ? "Хаах" : "Нээх"} 
-      </button>
-
       {(isLoadingData || isSubmitting) && (
             <div className="loading-overlay">
                 <div className="spinner"></div>
@@ -456,25 +496,22 @@ const fetchImportantNotes = async () => {
       {isOpen && (
         <div className="popup">
           {userRole !== "preview" && (
-  <button
-    onClick={() => setViewOption("important")}
-    style={{
-      backgroundColor: '#cd5f08',
-      color: 'white',
-      padding: '12px 20px',
-      border: 'none',
-      borderRadius: '5px',
-      fontSize: '1rem',
-      fontWeight: 'bold',
-      cursor: 'pointer'
-    }}
-  >
-    Анхаарал Татсан
-  </button>
-)}
-
-
-          
+        <button
+          onClick={() => setViewOption("important")}
+          style={{
+            backgroundColor: '#cd5f08',
+            color: 'white',
+            padding: '12px 20px',
+            border: 'none',
+            borderRadius: '5px',
+            fontSize: '1rem',
+            fontWeight: 'bold',
+            cursor: 'pointer'
+          }}
+        >
+          Анхаарал Татсан
+        </button>
+      )}          
           {userRole !== "preview" && (
             <button onClick={() => setViewOption("add")}>Сувилагчийн Тэмдэглэл</button>
           )}
@@ -488,7 +525,7 @@ const fetchImportantNotes = async () => {
                 <h4>Ангилалаа сонгоно уу!</h4>
                 {categories.map((category, idx) => (
                   <button key={idx} onClick={() => handleViewCategoryClick(category)}>
-                  {["Тарилга", "Амин үзүүлэлт", "Гардан ажилбар", "Шинжилгээ", "Асаргаа, сувилгаа", "Д/Х", "Биеийн жин"][idx]}
+                  {["Тарилга", "Амин үзүүлэлт", "Гардан ажилбар", "Шинжилгээ", "Асаргаа, сувилгаа", "Д/Х", "Биеийн жин, ЭМБОС, Халдвар хамгаалалт"][idx]}
                 </button>
                 
                 ))}
