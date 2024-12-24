@@ -1,15 +1,24 @@
 {
   "files": {
-    "main.css": "/medee/static/css/main.a3f25dbb.css",
-    "main.js": "/medee/static/js/main.b12be694.js",
-    "static/js/453.ade6345e.chunk.js": "/medee/static/js/453.ade6345e.chunk.js",
+    "main.css": "/medee/static/css/main.63448fb7.chunk.css",
+    "main.js": "/medee/static/js/main.566b2f1c.chunk.js",
+    "main.js.map": "/medee/static/js/main.566b2f1c.chunk.js.map",
+    "runtime-main.js": "/medee/static/js/runtime-main.e8a6dfd7.js",
+    "runtime-main.js.map": "/medee/static/js/runtime-main.e8a6dfd7.js.map",
+    "static/js/2.70ea85ee.chunk.js": "/medee/static/js/2.70ea85ee.chunk.js",
+    "static/js/2.70ea85ee.chunk.js.map": "/medee/static/js/2.70ea85ee.chunk.js.map",
+    "static/js/3.92613fef.chunk.js": "/medee/static/js/3.92613fef.chunk.js",
+    "static/js/3.92613fef.chunk.js.map": "/medee/static/js/3.92613fef.chunk.js.map",
     "index.html": "/medee/index.html",
-    "main.a3f25dbb.css.map": "/medee/static/css/main.a3f25dbb.css.map",
-    "main.b12be694.js.map": "/medee/static/js/main.b12be694.js.map",
-    "453.ade6345e.chunk.js.map": "/medee/static/js/453.ade6345e.chunk.js.map"
+    "precache-manifest.ae6e6edfc8f2423f725c403343d8db74.js": "/medee/precache-manifest.ae6e6edfc8f2423f725c403343d8db74.js",
+    "service-worker.js": "/medee/service-worker.js",
+    "static/css/main.63448fb7.chunk.css.map": "/medee/static/css/main.63448fb7.chunk.css.map",
+    "static/js/2.70ea85ee.chunk.js.LICENSE.txt": "/medee/static/js/2.70ea85ee.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/css/main.a3f25dbb.css",
-    "static/js/main.b12be694.js"
+    "static/js/runtime-main.e8a6dfd7.js",
+    "static/js/2.70ea85ee.chunk.js",
+    "static/css/main.63448fb7.chunk.css",
+    "static/js/main.566b2f1c.chunk.js"
   ]
 }
