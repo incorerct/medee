@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1c9af09d7f540241c7c2ad4d8e72a2e8",
+    "revision": "d5032c44405467fb9094736679be13e6",
     "url": "/medee/index.html"
   },
   {
-    "revision": "5843f6c470df3c5cd66d",
-    "url": "/medee/static/css/main.63448fb7.chunk.css"
+    "revision": "ad60e5707ad7e0c070aa",
+    "url": "/medee/static/css/main.ba8883bd.chunk.css"
   },
   {
     "revision": "60c2f8d9b8ef97bf6b1b",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/medee/static/js/3.92613fef.chunk.js"
   },
   {
-    "revision": "5843f6c470df3c5cd66d",
-    "url": "/medee/static/js/main.566b2f1c.chunk.js"
+    "revision": "ad60e5707ad7e0c070aa",
+    "url": "/medee/static/js/main.f9c8b9d6.chunk.js"
   },
   {
     "revision": "78af5429fb74f2bb4797",
