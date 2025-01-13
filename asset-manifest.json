@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/medee/static/css/main.ba8883bd.chunk.css",
-    "main.js": "/medee/static/js/main.f9c8b9d6.chunk.js",
-    "main.js.map": "/medee/static/js/main.f9c8b9d6.chunk.js.map",
+    "main.js": "/medee/static/js/main.ce1b4bec.chunk.js",
+    "main.js.map": "/medee/static/js/main.ce1b4bec.chunk.js.map",
     "runtime-main.js": "/medee/static/js/runtime-main.e8a6dfd7.js",
     "runtime-main.js.map": "/medee/static/js/runtime-main.e8a6dfd7.js.map",
     "static/js/2.70ea85ee.chunk.js": "/medee/static/js/2.70ea85ee.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.92613fef.chunk.js": "/medee/static/js/3.92613fef.chunk.js",
     "static/js/3.92613fef.chunk.js.map": "/medee/static/js/3.92613fef.chunk.js.map",
     "index.html": "/medee/index.html",
-    "precache-manifest.5efe30c0aea05b5da210846fd2d1dd1f.js": "/medee/precache-manifest.5efe30c0aea05b5da210846fd2d1dd1f.js",
+    "precache-manifest.20f2982f8a201391b4a74e7709d5b941.js": "/medee/precache-manifest.20f2982f8a201391b4a74e7709d5b941.js",
     "service-worker.js": "/medee/service-worker.js",
     "static/css/main.ba8883bd.chunk.css.map": "/medee/static/css/main.ba8883bd.chunk.css.map",
     "static/js/2.70ea85ee.chunk.js.LICENSE.txt": "/medee/static/js/2.70ea85ee.chunk.js.LICENSE.txt"
@@ -19,6 +19,6 @@
     "static/js/runtime-main.e8a6dfd7.js",
     "static/js/2.70ea85ee.chunk.js",
     "static/css/main.ba8883bd.chunk.css",
-    "static/js/main.f9c8b9d6.chunk.js"
+    "static/js/main.ce1b4bec.chunk.js"
   ]
 }
